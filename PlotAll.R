@@ -79,27 +79,49 @@ myPower2$day <- strftime(as.Date(myPower2$Date1), format = "%a")
 #DF$newcol <- apply(DF,1,function(row) mean(vec[ row[1] : row[2] ] ))
 #myPower2$Date1 <- apply(Power2,1,function(row) mean(vec[ row[1] : row[2] ] ))
 
-head(xx)
 
-?lapply
-#png("D:/temp/graph3.png")
-#hist(read)
-#dev.off()
+# Start Plot 1
+# ------------
+
 png("Plot1.png")
 hist(myPower$Global_active_power,col="red", main="Global Active Power",xlab="Global Active Power (killowatts) ")
 axis(side=2, at=seq(0, 1200, by=200))
 dev.off()
 
-#box()
+
+# Start Plot 2
+# ------------
 myLabels <- c(unique(myPower2$day) ,"Sat")
 #    c("Thur","Fri","Sat")
 
+png("Plot2.png")
 plot(myPower2$Global_active_power,col="Black", axes=F, main="",xlab="",ylab="Global Active Power (killowatts)", type="l")
 axis(2)
 axis(1, at= seq(0,2880, by=1440), labels=myLabels)
+box()
+dev.off()
+
+# Start Plot 3
+# ------------
+png("Plot3.png")
+plot(myPower2$Sub_metering_1,col="Black", axes=F, main="",xlab="",ylab="Energy Submetering", type="l")
+axis(2)
+axis(1, at= seq(0,2880, by=1440), labels=myLabels)
+lines(myPower2$Sub_metering_2,col="red")
+lines(myPower2$Sub_metering_3,col="blue")
+
+legend(1800,39.5, # places a legend at the appropriate place c("Health","Defense"), # puts text in the legend
+       c("Sub_metering_1","Sub_metering_2", "Sub_metering_3"), # puts text in the legend   
+       lty=c(1,1,1), # gives the legend appropriate symbols (lines)
+       
+       lwd=c(2.5,2.5, 2.5),col=c("black","red","blue"), # gives the legend lines the correct color and width
+        y.intersp=1)
+
 
 box()
-#dev.off()
 
-# at=seq(0, 600, by=100))
-?axis
+dev.off()
+
+
+
+
