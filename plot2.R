@@ -78,7 +78,7 @@ myPower2$day <- strftime(as.Date(myPower2$Date1), format = "%a")
 # Start Plot 2
 # ------------
 
-png("plot2.png")
+png("plot2.png",width = 480, height = 480)
 myLabels <- c(unique(myPower2$day) ,"Sat")
 
 plot(myPower2$Global_active_power,col="Black", axes=F, main="",xlab="",ylab="Global Active Power (killowatts)", type="l")

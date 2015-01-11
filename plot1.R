@@ -84,7 +84,7 @@ myPower2$day <- strftime(as.Date(myPower2$Date1), format = "%a")
 # Start Plot 1
 # ------------
 
-png("plot1.png")
+png("plot1.png", width = 480, height = 480)
 hist(myPower$Global_active_power,col="red", main="Global Active Power",xlab="Global Active Power (killowatts) ")
 axis(side=2, at=seq(0, 1200, by=200))
 dev.off()

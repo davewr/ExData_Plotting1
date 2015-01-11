@@ -75,7 +75,7 @@ myPower2$day <- strftime(as.Date(myPower2$Date1), format = "%a")
 # --------------------
 # Start Plot 3
 # ------------
-png("plot3.png")
+png("plot3.png",width = 480, height = 480)
 plot(myPower2$Sub_metering_1,col="Black", axes=F, main="",xlab="",ylab="Energy Submetering", type="l")
 axis(2)
 axis(1, at= seq(0,2880, by=1440), labels=myLabels)
